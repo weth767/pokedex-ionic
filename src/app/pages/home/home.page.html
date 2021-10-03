@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pokedex Ionic</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-searchbar
+    [animated]="true"
+    mode="ios" 
+    showClearButton="focus"
+    (ionChange)="search($event)"
+    [debounce]="1000"
+    inputmode="search"
+    >
+    </ion-searchbar>
+    <ion-row>
+      <ion-col *ngFor="let pokemon of pokemons" size="6">
+        <app-card-pokemon [pokemon]="pokemon"></app-card-pokemon>
+      </ion-col> 
+    </ion-row>
+  </ion-list>
+</ion-content>
