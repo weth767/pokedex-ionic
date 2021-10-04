@@ -13,8 +13,8 @@ export class PokedexService {
 
   constructor(private http: HttpClient) { }
 
-  public getAll(): Observable<ResponseData> {
-    return this.http.get<ResponseData>(`https://pokeapi.co/api/v2/pokemon/?limit=10`);
+  public getAll(url = undefined): Observable<ResponseData> {
+    return this.http.get<ResponseData>(url ? url : `https://pokeapi.co/api/v2/pokemon/?limit=100`);
   }
 
   public getByUrl(url: string): Observable<PokemonResponse> {

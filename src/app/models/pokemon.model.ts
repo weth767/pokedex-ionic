@@ -10,6 +10,7 @@ export class PokemonResponse {
     public species: Specie[] = [];
     public sprites: Sprite;
     public stats: StatResponse[] = [];
+    public types: TypeResponse[] = [];
     public weight: number;
 }
 

@@ -24,3 +24,145 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.centralize-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grass {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #78c850
+}
+
+.fire {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #f08030;
+}
+
+.water {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #6890f0;
+}
+
+.bug {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #a8b820;
+}
+
+.normal {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #a8a878;
+}
+
+.poison {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #a040a0;
+}
+    
+.electric {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #f8d030;
+}
+    
+.ground {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #e0c068;
+}
+    
+.fairy {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #ee99ac;
+}
+
+.fighting {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #c03028;
+}
+    
+.psychic {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #f85888;
+}
+
+.rock {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #b8a038;
+}
+    
+.ghost {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #705898;
+}
+
+.ice {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #98d8d8;
+}
+    
+.dragon {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #7038f8;
+}
+
+.flying {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #a890f0;
+}
+
+.steel {
+    padding: 1vh 5vw !important;
+    color: #000;
+    font-weight: 700;
+    --color: #000;
+    --background: #b8b8d0;
+}

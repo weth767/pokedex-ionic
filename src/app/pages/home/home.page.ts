@@ -1,3 +1,4 @@
+import { ResponseData } from './../../models/response-data.model';
 import { Utils } from './../../utils/utils';
 import { PokemonResponse } from './../../models/pokemon.model';
 import { PokedexService } from './../../services/pokedex.service';
@@ -13,6 +14,7 @@ import { finalize } from 'rxjs/operators';
 export class HomePage implements OnInit {
   @BlockUI() blockUi: NgBlockUI;
   pokemons: PokemonResponse[] = [];
+  data: ResponseData;
   originalPokemonsList: PokemonResponse[] = [];
 
   constructor(private service: PokedexService) { }
@@ -22,6 +24,7 @@ export class HomePage implements OnInit {
     this.service.getAll()
     .pipe((finalize(() => this.blockUi.stop())))
     .subscribe((result) => {
+      this.data = result;
       result.results.forEach((result) => {
         this.service.getByUrl(result.url).subscribe((pokemonResult) => {
           this.pokemons.push(pokemonResult);
@@ -35,5 +38,35 @@ export class HomePage implements OnInit {
     if (event.detail) {
       this.pokemons = this.originalPokemonsList.filter((pokemon) => pokemon.name.includes(event.detail.value.toLowerCase()));
     }
+  }
+
+  public nextPage(): void {
+    this.blockUi.start();
+    this.service.getAll(this.data.next)
+    .pipe((finalize(() => this.blockUi.stop())))
+    .subscribe((result) => {
+      this.data = result;
+      result.results.forEach((result) => {
+        this.service.getByUrl(result.url).subscribe((pokemonResult) => {
+          this.pokemons.push(pokemonResult);
+          this.originalPokemonsList.push(pokemonResult);
+        });
+      });
+    });
+  }
+
+  public previousPage(): void {
+    this.blockUi.start();
+    this.service.getAll(this.data.previous)
+    .pipe((finalize(() => this.blockUi.stop())))
+    .subscribe((result) => {
+      this.data = result;
+      result.results.forEach((result) => {
+        this.service.getByUrl(result.url).subscribe((pokemonResult) => {
+          this.pokemons.push(pokemonResult);
+          this.originalPokemonsList.push(pokemonResult);
+        });
+      });
+    });
   }
 }
