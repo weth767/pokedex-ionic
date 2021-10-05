@@ -14,7 +14,7 @@ export class PokedexService {
   constructor(private http: HttpClient) { }
 
   public getAll(url = undefined): Observable<ResponseData> {
-    return this.http.get<ResponseData>(url ? url : `https://pokeapi.co/api/v2/pokemon/?limit=100`);
+    return this.http.get<ResponseData>(url ? url : `https://pokeapi.co/api/v2/pokemon/?limit=10`);
   }
 
   public getByUrl(url: string): Observable<PokemonResponse> {

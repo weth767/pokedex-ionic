@@ -1,9 +1,54 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>view-pokemon</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{Utils.capitalize(pokemon.name)}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-img [src]="pokemon?.sprites?.front_default"></ion-img>
+  <ion-slides [pager]="true">
+    <ion-slide *ngIf="pokemon?.sprites?.back_default">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.back_default"></ion-img>
+    </ion-slide>
+    <ion-slide *ngIf="pokemon?.sprites?.back_female">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.back_female"></ion-img>
+    </ion-slide>
+    <ion-slide *ngIf="pokemon?.sprites?.back_shiny">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.back_shiny"></ion-img>
+    </ion-slide>
+    <ion-slide *ngIf="pokemon?.sprites?.back_shiny_female">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.back_shiny_female"></ion-img>
+    </ion-slide>
+    <ion-slide *ngIf="pokemon?.sprites?.front_default">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.front_default"></ion-img>
+    </ion-slide>
+    <ion-slide *ngIf="pokemon?.sprites?.front_female">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.front_female"></ion-img>
+    </ion-slide>
+    <ion-slide *ngIf="pokemon?.sprites?.front_shiny">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.front_shiny"></ion-img>
+    </ion-slide>
+    <ion-slide *ngIf="pokemon?.sprites?.front_shiny_female">
+      <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.front_shiny_female"></ion-img>
+    </ion-slide>
+  </ion-slides>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-label>Stats</ion-label>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12" *ngFor="let stat of pokemon?.stats">
+          <ion-item>
+            <ion-label>{{stat.stat.name}}</ion-label>
+            <ion-label>{{stat.base_stat}}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

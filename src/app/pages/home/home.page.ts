@@ -40,7 +40,7 @@ export class HomePage implements OnInit {
     }
   }
 
-  public nextPage(): void {
+  public moreData(event: any): void {
     this.blockUi.start();
     this.service.getAll(this.data.next)
     .pipe((finalize(() => this.blockUi.stop())))
@@ -51,21 +51,7 @@ export class HomePage implements OnInit {
           this.pokemons.push(pokemonResult);
           this.originalPokemonsList.push(pokemonResult);
         });
-      });
-    });
-  }
-
-  public previousPage(): void {
-    this.blockUi.start();
-    this.service.getAll(this.data.previous)
-    .pipe((finalize(() => this.blockUi.stop())))
-    .subscribe((result) => {
-      this.data = result;
-      result.results.forEach((result) => {
-        this.service.getByUrl(result.url).subscribe((pokemonResult) => {
-          this.pokemons.push(pokemonResult);
-          this.originalPokemonsList.push(pokemonResult);
-        });
+        event.target.complete();
       });
     });
   }

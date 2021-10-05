@@ -4,10 +4,7 @@
       Pokedex Ionic
     </ion-title>
   </ion-toolbar>
-</ion-header>
-<ion-content>
-  <ion-list>
-    <ion-searchbar
+  <ion-searchbar
     mode="ios" 
     showClearButton="focus"
     (ionChange)="search($event)"
@@ -15,10 +12,17 @@
     inputmode="search"
     >
     </ion-searchbar>
+</ion-header>
+<ion-content>
+  <ion-list>
     <ion-row>
       <ion-col *ngFor="let pokemon of pokemons" size="6">
         <app-card-pokemon [pokemon]="pokemon"></app-card-pokemon>
       </ion-col> 
     </ion-row>
   </ion-list>
+  <ion-infinite-scroll threshold="1%" (ionInfinite)="moreData($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
