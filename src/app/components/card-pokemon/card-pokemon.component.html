@@ -1,4 +1,7 @@
-<ion-card class="card-pokemon" (click)="viewPokemon()">
+<ion-card 
+  [style]="getCardStyleClass(pokemon.types)" 
+  class="card-pokemon" 
+  (click)="viewPokemon()">
   <ion-card-header>
     <ion-card-title class="centralize-text">
       <ion-label>{{Utils.capitalize(pokemon.name)}}</ion-label>
@@ -7,7 +10,7 @@
   <ion-img class="pokemon-sprite" [src]="pokemon?.sprites?.front_default"></ion-img>
   <ion-card-content>
     <ion-row *ngFor="let type of pokemon?.types" class="centralize-text">
-      <ion-chip [ngClass]="type.type.name">
+      <ion-chip class="ion-chip" [style]="'background: var(--' + type.type.name + ')'">
         <ion-label>{{Utils.capitalize(type.type.name)}}</ion-label>
       </ion-chip>      
     </ion-row>
